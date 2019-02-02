@@ -12,20 +12,20 @@ export const SET_TITLE = 'SET_TITLE';
 export function addAccount(account) { // Useless
     return { type: ADD_ACCOUNT, account };
 }
-export function fetchAccounts() {
-    return { type: FETCH_ACCOUNTS };
+export function fetchAccounts(accounts) {
+    return { type: FETCH_ACCOUNTS, accounts };
 }
-export function fetchAccountTypes() {
-    return { type: FETCH_ACCOUNT_TYPES };
+export function fetchAccountTypes(types) {
+    return { type: FETCH_ACCOUNT_TYPES, types };
 }
 export function addTransactions(file) { // Useless
     return { type: ADD_TRANSACTIONS, file };
 }
-export function fetchTransactions() {
-    return { type: FETCH_TRANSACTIONS };
+export function fetchTransactions(transactions) {
+    return { type: FETCH_TRANSACTIONS, transactions };
 }
-export function fetchTransactionTypes() {
-    return { type: FETCH_TRANSACTION_TYPES };
+export function fetchTransactionTypes(types) {
+    return { type: FETCH_TRANSACTION_TYPES, types };
 }
 export function setTitle(title) {
     return { type: SET_TITLE, title };

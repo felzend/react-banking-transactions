@@ -1,7 +1,9 @@
 import { SET_TITLE } from "../Actions";
+import socket from '../Services/NotificationService';
 
 const initialState = {
     'app_title': 'Banking Transaction App',
+    'socket': socket
 };
 
 const AppReducer = (state = initialState, action) => {
