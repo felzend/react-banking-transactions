@@ -17,7 +17,16 @@ namespace BankTransactions.Repository
             }
         }
 
-        public void Add(T entity)
+        public T Get(long id)
+        {
+            var sessionFactory = DatabaseHandler.CreateSessionFactory();
+            using (var session = sessionFactory.OpenSession())
+            {
+                return session.Get<T>(id);
+            }
+        }
+
+        public virtual void Add(T entity)
         {
             var sessionFactory = DatabaseHandler.CreateSessionFactory();
             using (var session = sessionFactory.OpenSession())

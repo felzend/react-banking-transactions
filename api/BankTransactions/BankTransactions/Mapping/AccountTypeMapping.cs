@@ -17,11 +17,9 @@ namespace BankTransactions.Mapping
                 .Unique()
                 .Not.Nullable();
             Map(x => x.CreatedAt)
-                .Default("getdate()")
-                .Not.Nullable();
+                .Default("getdate()");
             Map(x => x.UpdatedAt)
-                .Default("getdate()")
-                .Not.Nullable();
-        }       
+                .Default("getdate()");
+        }
     }
 }

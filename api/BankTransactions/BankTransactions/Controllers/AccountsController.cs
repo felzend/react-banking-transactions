@@ -3,6 +3,8 @@ using BankTransactions.Model;
 using BankTransactions.Modules;
 using BankTransactions.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Ninject;
 
 namespace BankTransactions.Controllers
@@ -12,11 +14,13 @@ namespace BankTransactions.Controllers
     public class AccountsController : ControllerBase
     {
         public AccountsRepository Repository { get; set; }
+        public AccountTypesRepository AccountTypesRepository { get; set; }
 
         public AccountsController()
         {
             IKernel kernel = new StandardKernel(new BankingModule());
             this.Repository = kernel.Get<AccountsRepository>();
+            this.AccountTypesRepository = kernel.Get<AccountTypesRepository>();
         }
 
         [HttpGet]
@@ -26,7 +30,8 @@ namespace BankTransactions.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add([FromBody]Account account)
+        [Route("add")]
+        public IActionResult Add([FromBody]JObject account)
         {
             try
             {

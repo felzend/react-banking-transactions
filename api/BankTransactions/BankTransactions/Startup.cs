@@ -60,27 +60,6 @@ namespace BankTransactions
 
             app.UseWebSockets();
             app.UseMiddleware<WebSocketMiddleware>();
-            /*app.Use(async (context, next) =>
-            {
-                if (context.Request.Path == "/ws")
-                {
-                    if (context.WebSockets.IsWebSocketRequest)
-                    {
-                        WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
-                        //await WebSocketMiddleware.AddSocket(webSocket);
-                        await WebSocketMiddleware.Echo(webSocket);                        
-                    }
-                    else
-                    {
-                        context.Response.StatusCode = 400;
-                    }
-                }
-                else
-                {
-                    await next();
-                }
-
-            });*/
         }
         public static async Task SendMessageAsync(WebSocket socket, string message)
         {

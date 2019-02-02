@@ -8,7 +8,7 @@ namespace BankTransactions.Model
     public abstract class Entity
     {
         public virtual long Id { get; set; }
-        public virtual DateTime CreatedAt { get; set; }
-        public virtual DateTime UpdatedAt { get; set; }
+        public virtual DateTime? CreatedAt { get; set; }
+        public virtual DateTime? UpdatedAt { get; set; }
     }
 }

@@ -30,6 +30,7 @@ namespace BankTransactions.Controllers
         }
 
         [HttpPost]
+        [Route("add")]
         public IActionResult Add([FromBody]Transaction transaction)
         {
             try
