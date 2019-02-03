@@ -28,5 +28,12 @@ namespace BankTransactions.Controllers
         {
             return Ok(this.Repository.All());
         }
+
+        [HttpGet]
+        [Route("get/{id}")]
+        public IActionResult Get(long id)
+        {
+            return Ok(this.Repository.Get(id));
+        }
     }
 }

@@ -18,8 +18,7 @@ namespace BankTransactions.Mapping
             Map(x => x.Owner)
                 .Length(50)
                 .Not.Nullable();
-            Map(x => x.Bank)
-                .Length(50)
+            References(x => x.Bank)
                 .UniqueKey(this.account_constraint_key)
                 .Not.Nullable();
             Map(x => x.Agency)

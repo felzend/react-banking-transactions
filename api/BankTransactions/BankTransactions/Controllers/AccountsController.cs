@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BankTransactions.Model;
 using BankTransactions.Modules;
 using BankTransactions.Repository;
@@ -42,6 +43,13 @@ namespace BankTransactions.Controllers
             {
                 return BadRequest(e.Message);
             }
+        }
+
+        [HttpGet]
+        [Route("get/{id}")]
+        public IActionResult Get(long id)
+        {
+            return Ok(this.Repository.Get(id));
         }
     }
 }

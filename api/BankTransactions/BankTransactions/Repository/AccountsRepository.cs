@@ -15,13 +15,15 @@ namespace BankTransactions.Repository
         {
             var sessionFactory = DatabaseHandler.CreateSessionFactory();
             using (var session = sessionFactory.OpenSession())
-            {                
+            {
                 using (var transaction = session.BeginTransaction())
                 {
                     try
                     {
                         AccountType accountType = session.Get<AccountType>(entity["AccountType_id"].ToObject<long>());
+                        Bank bank = session.Get<Bank>(entity["BankId"].ToObject<long>());
                         entity.Add("AccountType", JToken.FromObject(accountType));
+                        entity.Add("Bank", JToken.FromObject(bank));
                         Account account = entity.ToObject<Account>();
                         session.SaveOrUpdate(account);
                         transaction.Commit();

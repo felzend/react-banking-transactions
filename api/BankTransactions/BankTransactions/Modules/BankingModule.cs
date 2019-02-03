@@ -15,6 +15,7 @@ namespace BankTransactions.Modules
             this.Bind<AccountsRepository>().ToSelf();            
             this.Bind<TransactionTypesRepository>().ToSelf();
             this.Bind<TransactionsRepository>().ToSelf();
+            this.Bind<BanksRepository>().ToSelf();
         }
     }
 }

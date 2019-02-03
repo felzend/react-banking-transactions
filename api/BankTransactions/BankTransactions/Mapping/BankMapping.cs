@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BankTransactions.Mapping
 {
-    public class AccountTypeMapping : ClassMap<AccountType>
+    public class BankMapping : ClassMap<Bank>
     {
-        public AccountTypeMapping()
+        public BankMapping()
         {
-            Table("AccountType");            
+            Table("Bank");
             Id(x => x.Id);
             Map(x => x.Name)
                 .Unique()

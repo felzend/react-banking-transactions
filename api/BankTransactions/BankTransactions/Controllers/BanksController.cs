@@ -1,26 +1,25 @@
-﻿using System;
+﻿using BankTransactions.Modules;
+using BankTransactions.Repository;
+using Ninject;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BankTransactions.Model;
-using BankTransactions.Modules;
-using BankTransactions.Repository;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Ninject;
 
 namespace BankTransactions.Controllers
 {
-    [Route("api/transactions")]
+    [Route("api/banks")]
     [ApiController]
-    public class TransactionsController : ControllerBase
+    public class BanksController : ControllerBase
     {
-        public TransactionsRepository Repository { get; set; }
+        public BanksRepository Repository { get; set; }
 
-        public TransactionsController()
+        public BanksController()
         {
             IKernel kernel = new StandardKernel(new BankingModule());
-            this.Repository = kernel.Get<TransactionsRepository>();
+            this.Repository = kernel.Get<BanksRepository>();
         }
 
         [HttpGet]
@@ -31,12 +30,12 @@ namespace BankTransactions.Controllers
 
         [HttpPost]
         [Route("add")]
-        public IActionResult Add([FromBody]Transaction transaction)
+        public IActionResult Add(Bank bank)
         {
             try
             {
-                this.Repository.Add(transaction);
-                return Ok("Transação inserida com sucesso!");
+                this.Repository.Add(bank);
+                return Ok("Banco criado com sucesso!");
             }
             catch (Exception e)
             {

@@ -10,5 +10,11 @@ namespace BankTransactions.Model
         public virtual long Id { get; set; }
         public virtual DateTime? CreatedAt { get; set; }
         public virtual DateTime? UpdatedAt { get; set; }
+        
+        public Entity()
+        {
+            this.CreatedAt = DateTime.Now;
+            this.UpdatedAt = DateTime.Now;
+        }
     }
 }

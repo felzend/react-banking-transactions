@@ -17,6 +17,12 @@ namespace BankTransactions.Mapping
                 .Not.Nullable();
             References(x => x.TransactionType)
                 .Not.Nullable();
+            Map(x => x.Value)
+                .Not.Nullable();
+            Map(x => x.Description)
+                .Nullable();
+            Map(x => x.Date)
+                .Not.Nullable();
             Map(x => x.CreatedAt)
                 .Default("getdate()");
             Map(x => x.UpdatedAt)

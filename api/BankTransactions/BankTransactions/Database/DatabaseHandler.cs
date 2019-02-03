@@ -20,9 +20,10 @@ namespace BankTransactions.Database
 
             var config = Fluently
                 .Configure()
-                .Database(FluentNHibernate.Cfg.Db.MsSqlConfiguration.MsSql2012.ConnectionString(settings["ConnectionString"]))
+                .Database(FluentNHibernate.Cfg.Db.MsSqlConfiguration.MsSql2012.ConnectionString(settings["ConnectionString"]))                
                 .Mappings(x => x.FluentMappings.AddFromAssemblyOf<AccountType>())
                 .Mappings(x => x.FluentMappings.AddFromAssemblyOf<TransactionType>())
+                .Mappings(x => x.FluentMappings.AddFromAssemblyOf<Bank>())
                 .Mappings(x => x.FluentMappings.AddFromAssemblyOf<Account>())
                 .Mappings(x => x.FluentMappings.AddFromAssemblyOf<Transaction>())
                 .BuildConfiguration();
