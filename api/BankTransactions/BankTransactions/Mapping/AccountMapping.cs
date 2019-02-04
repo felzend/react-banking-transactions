@@ -34,6 +34,7 @@ namespace BankTransactions.Mapping
                 .Default("getdate()");
             Map(x => x.UpdatedAt)
                 .Default("getdate()");
+            Not.LazyLoad();
         }
     }
 }

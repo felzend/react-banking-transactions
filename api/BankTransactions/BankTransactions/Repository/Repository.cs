@@ -13,7 +13,28 @@ namespace BankTransactions.Repository
             var sessionFactory = DatabaseHandler.CreateSessionFactory();
             using (var session = sessionFactory.OpenSession())
             {
-                return session.CreateCriteria(typeof(T)).List<T>();
+                IList<T> objects = session.CreateCriteria(typeof(T)).List<T>();
+                return objects;
+            }
+        }
+
+        public Dictionary<string, object> Paginate(int page = 1, int amount = 200)
+        {
+            var sessionFactory = DatabaseHandler.CreateSessionFactory();
+            using (var session = sessionFactory.OpenSession())
+            {
+                page = page > 0 ? page : 1;
+                Dictionary<string, object> paginationData = new Dictionary<string, object>();
+                int count = session.Query<T>().Count();
+                int currentPage = page;
+                int numPages = count / amount;
+                List<int> pages = Enumerable.Range(1, numPages).ToList();
+                IList<T> objects = session.Query<T>().Skip((page - 1) * amount).Take(amount).ToList<T>();
+                paginationData.Add("count", count);
+                paginationData.Add("currentPage", currentPage);
+                paginationData.Add("pages", pages);
+                paginationData.Add("data", objects);
+                return paginationData;
             }
         }
 
