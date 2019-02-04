@@ -25,17 +25,22 @@ button {
     justify-content: center;
     margin: 1rem 0;
 }
+.card-header {
+    font-weight: bold;
+}
+.card-body {
+    overflow-y: scroll;
+    max-height: 700px;
+}
 .content {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-.account-register {
-
+.paginator {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
 }
-.account-dashboard {
-    
-}
-
 @media screen and (min-width: 1200px) {
     .nav-item {
         margin: 0 .5rem;

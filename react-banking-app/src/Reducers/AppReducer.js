@@ -1,9 +1,10 @@
-import { SET_TITLE } from "../Actions";
+import { SET_TITLE, SET_LOADING } from "../Actions";
 import socket from '../Services/NotificationService';
 
 const initialState = {
-    'app_title': 'Banking Transaction App',
-    'socket': socket
+    app_title: 'Banking Transaction App',
+    loading: {},    
+    socket: socket
 };
 
 const AppReducer = (state = initialState, action) => {
@@ -12,6 +13,13 @@ const AppReducer = (state = initialState, action) => {
             return {
                 ...state,
                 app_title: action.title 
+            }
+        }
+        case SET_LOADING: {
+            state.loading[action.prop] = action.loading;
+            return {
+                ...state,
+                loading: state.loading,
             }
         }
         default: {
