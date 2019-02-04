@@ -1,8 +1,6 @@
-export const ADD_ACCOUNT = 'ADD_ACCOUNT';
 export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS';
 export const FETCH_ACCOUNT_TYPES = 'FETCH_ACCOUNT_TYPES';
 
-export const ADD_TRANSACTIONS = 'ADD_TRANSACTIONS';
 export const FETCH_TRANSACTIONS = 'FETCH_TRANSACTIONS';
 export const FETCH_TRANSACTION_TYPES = 'FETCH_TRANSACTION_TYPES';
 
@@ -12,9 +10,6 @@ export const SET_TITLE = 'SET_TITLE';
 export const SET_LOADING = 'SET_LOADING';
 
 
-export function addAccount(account) { // Useless
-    return { type: ADD_ACCOUNT, account };
-}
 export function fetchBanks(banks) {
     return { type: FETCH_BANKS, banks };
 }
@@ -23,9 +18,6 @@ export function fetchAccounts(accounts) {
 }
 export function fetchAccountTypes(types) {
     return { type: FETCH_ACCOUNT_TYPES, types };
-}
-export function addTransactions(file) { // Useless
-    return { type: ADD_TRANSACTIONS, file };
 }
 export function fetchTransactions(transactions) {
     return { type: FETCH_TRANSACTIONS, transactions };
